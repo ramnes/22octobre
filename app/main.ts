@@ -1,4 +1,11 @@
 import {bootstrap} from "@angular/platform-browser-dynamic";
-import {App}       from "./components/app";
+import {provideRouter} from "@angular/router";
 
-bootstrap(App);
+import {App} from "./components/app";
+
+var Routes = [
+    {path: "", component: App}
+];
+
+bootstrap(App, [provideRouter(Routes)])
+    .catch(err => console.error(err));
