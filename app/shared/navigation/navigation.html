@@ -1,4 +1,6 @@
 <nav>
   <a [routerLink]="['home']">Accueil</a>
+  <a *ngIf="!married()" [routerLink]="['invitation']">Invitation</a>
+  <a *ngIf="married()" [routerLink]="['gallery']">Photos</a>
   <a [routerLink]="['contact']">Contact</a>
 </nav>
