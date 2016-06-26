@@ -1,9 +1,11 @@
 import {Component} from "@angular/core";
-import {ROUTER_DIRECTIVES} from "@angular/router"
+import {ROUTER_DIRECTIVES} from "@angular/router";
+
+import {Navigation} from "../shared/navigation/navigation";
 
 @Component({
     selector: "app",
-    template: "<router-outlet></router-outlet>"
-    directives: [ROUTER_DIRECTIVES]
+    templateUrl: "app/components/app.html",
+    directives: [ROUTER_DIRECTIVES, Navigation]
 })
 export class App {}
