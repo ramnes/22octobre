@@ -1,6 +1,10 @@
-<nav>
-  <a [routerLink]="['home']">Accueil</a>
-  <a *ngIf="!married()" [routerLink]="['invitation']">Invitation</a>
-  <a *ngIf="married()" [routerLink]="['gallery']">Photos</a>
-  <a [routerLink]="['contact']">Contact</a>
+<nav class="navbar navbar-static-top">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['home']">22 octobre</a>
+    <ul class="nav navbar-nav">
+      <li><a *ngIf="!married()" [routerLink]="['invitation']">Invitation</a></li>
+      <li><a *ngIf="married()" [routerLink]="['gallery']">Photos</a></li>
+      <li><a [routerLink]="['contact']">Contact</a></li>
+    </ul>
+  </div>
 </nav>
