@@ -1,23 +1,23 @@
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {provideRouter} from "@angular/router";
 
-import {App} from "./components/app";
-import {Home} from "./components/home/home";
-import {Invitation} from "./components/invitation/invitation";
-import {Gallery} from "./components/gallery/gallery";
-import {Contact} from "./components/contact/contact";
-import {Login} from "./components/login/login";
+import {AppComponent} from "./component";
+import {HomeComponent} from "./home/component";
+import {InvitationComponent} from "./invitation/component";
+import {GalleryComponent} from "./gallery/component";
+import {ContactComponent} from "./contact/component";
+import {LoginComponent} from "./login/component";
 
 import {AuthGuard} from "./utils";
 
-var Routes = [
-    {path: "", component: Home, canActivate: [AuthGuard]},
-    {path: "home", component: Home, canActivate: [AuthGuard]},
-    {path: "invitation", component: Invitation, canActivate: [AuthGuard]},
-    {path: "gallery", component: Gallery, canActivate: [AuthGuard]},
-    {path: "contact", component: Contact, canActivate: [AuthGuard]},
-    {path: "login", component: Login}
+var routes = [
+    {path: "", component: HomeComponent, canActivate: [AuthGuard]},
+    {path: "home", component: HomeComponent, canActivate: [AuthGuard]},
+    {path: "invitation", component: InvitationComponent, canActivate: [AuthGuard]},
+    {path: "gallery", component: GalleryComponent, canActivate: [AuthGuard]},
+    {path: "contact", component: ContactComponent, canActivate: [AuthGuard]},
+    {path: "login", component: LoginComponent}
 ];
 
-bootstrap(App, [provideRouter(Routes), AuthGuard])
+bootstrap(AppComponent, [provideRouter(routes), AuthGuard])
     .catch(err => console.error(err));
