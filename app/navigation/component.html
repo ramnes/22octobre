@@ -15,6 +15,7 @@
       <ul class="nav navbar-nav">
         <li><a *ngIf="!married()" [routerLink]="['/invitation']">Invitation</a></li>
         <li><a *ngIf="married()" [routerLink]="['/gallery']">Photos</a></li>
+        <li><a [routerLink]="['/menu']">Menu</a></li>
         <li><a [routerLink]="['/access']">Accès</a></li>
         <li><a [routerLink]="['/contact']">Contact</a></li>
         <li><a (click)="disconnect()" [routerLink]="['/login']">Déconnexion</a></li>
