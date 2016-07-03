@@ -1,35 +1,47 @@
 #login {
     margin-top: 35%;
     margin-top: 35vh;
-    padding: 1em 4em 1em 4em;
-    min-width: 20em;
     max-width: 25em;
+    min-width: 20em;
+    padding: 1em 4em 1em 4em;
     width: 40%;
 
     background-color: rgba(0, 0, 0, 0.5);
     color: rgb(230, 230, 230);
 }
 
+#title {
+    margin-top: 0.5em;
+
+    color: rgb(255, 255, 255);
+
+    font-family: Libre Baskerville, serif;
+    font-size: 2em;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+}
+
 #login > input {
     margin-top: 1em;
     margin-bottom: 1em;
 
-    font-weight: 700;
     font-family: Libre Baskerville, serif;
-    text-align: center;
     font-size: 1.3em;
+    font-weight: 700;
+    text-align: center;
 }
 
 .btn-primary {
-    border-color: rgba(0, 0, 0, 0);
     background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0);
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-    border-color: rgba(0, 0, 0, 0);
     background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(0, 0, 0, 0);
 }
 
 .background-image {
