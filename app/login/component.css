@@ -32,6 +32,10 @@
     text-align: center;
 }
 
+#login > .error {
+    border-color: rgb(255, 0, 0);
+}
+
 .btn-primary {
     background-color: rgba(0, 0, 0, 0.1);
     border-color: rgba(0, 0, 0, 0);

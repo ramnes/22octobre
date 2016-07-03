@@ -12,7 +12,11 @@ import {LocalStorage} from "../utils";
     providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
-    constructor(private service: LoginService, private router: Router) {}
+    invalid: boolean;
+
+    constructor(private service: LoginService, private router: Router) {
+        this.invalid = false;
+    }
 
     ngOnInit() {
         var user = LocalStorage.get("user");
@@ -25,9 +29,17 @@ export class LoginComponent implements OnInit {
         this.router.navigate(["/home"]);
     }
 
-    submit(code: string) {
-        this.service.getUser(code).subscribe(
-            user => this.redirect(user)
+    handleError(code: HTMLInputElement) {
+        code.value = "";
+        code.placeholder = "Code invalide";
+        code.focus();
+        this.invalid = true;
+   }
+
+    submit(code: HTMLInputElement) {
+        this.service.getUser(code.value).subscribe(
+            user => this.redirect(user),
+            error => this.handleError(code)
         );
     }
 }

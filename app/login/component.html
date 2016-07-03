@@ -3,8 +3,8 @@
   <div id="title">22 octobre</div>
   <input #code id="code" class="form-control center-block"
          autofocus spellcheck="false" autocomplete="off" type="text"
-         placeholder="Code d'accès"/>
+         placeholder="Code d'accès" [class.error]="invalid"/>
   <input class="btn btn-primary btn-block center-block"
          type="submit" value="Connexion"
-         (click)="submit(code.value)"/>
+         (click)="submit(code)"/>
 </div>
