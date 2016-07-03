@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 
 import {User} from "../user/model";
@@ -11,8 +11,14 @@ import {LocalStorage} from "../utils";
     styleUrls: ["app/login/component.css"],
     providers: [LoginService]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
     constructor(private service: LoginService, private router: Router) {}
+
+    ngOnInit() {
+        var user = LocalStorage.get("user");
+        if (user && user._id && user.name)
+            this.router.navigate(["/home"])
+    }
 
     redirect(user: User) {
         LocalStorage.set("user", user);
