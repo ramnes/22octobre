@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 
 import {User} from "../user/model";
 import {LoginService} from "./service";
+import {LocalStorage} from "../utils";
 
 @Component({
     selector: "app-login",
@@ -14,7 +15,7 @@ export class LoginComponent {
     constructor(private service: LoginService, private router: Router) {}
 
     redirect(user: User) {
-        console.log(user);
+        LocalStorage.set("user", user);
         this.router.navigate(["/home"]);
     }
 

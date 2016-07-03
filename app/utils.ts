@@ -18,3 +18,16 @@ export class AuthGuard implements CanActivate {
         return false;
     }
 }
+
+export class LocalStorage {
+    static get(key: string) {
+        var value = localStorage.getItem(key);
+
+        if (value && value !== "undefined")
+            return JSON.parse(value);
+    }
+
+    static set(key: string, value: any) {
+        localStorage.setItem(key, JSON.stringify(value));
+    }
+}
