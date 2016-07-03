@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
-import {ROUTER_DIRECTIVES} from "@angular/router";
+import {ROUTER_DIRECTIVES, Router} from "@angular/router";
 
-import {married} from "../utils";
+import {married, LocalStorage} from "../utils";
 
 @Component({
     selector: "app-navigation",
@@ -10,5 +10,16 @@ import {married} from "../utils";
     directives: [ROUTER_DIRECTIVES]
 })
 export class NavigationComponent {
+    user: any;
+
+    constructor(private router: Router) {
+        this.user = LocalStorage.get("user");
+    }
+
+    disconnect() {
+        LocalStorage.remove("user");
+        this.router.navigate(["/login"]);
+    }
+
     married = married;
 }

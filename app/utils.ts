@@ -18,6 +18,10 @@ export class LocalStorage {
     static set(key: string, value: any) {
         localStorage.setItem(key, JSON.stringify(value));
     }
+
+    static remove(key: string) {
+        localStorage.removeItem(key);
+    }
 }
 
 @Injectable()
