@@ -7,18 +7,6 @@ export function married() {
     return (new Date() > wedding_date);
 }
 
-@Injectable()
-export class AuthGuard implements CanActivate {
-    constructor(private router: Router) {}
-
-    canActivate() {
-        if (42)
-            return true;
-        this.router.navigate(["/login"]);
-        return false;
-    }
-}
-
 export class LocalStorage {
     static get(key: string) {
         var value = localStorage.getItem(key);
@@ -29,5 +17,18 @@ export class LocalStorage {
 
     static set(key: string, value: any) {
         localStorage.setItem(key, JSON.stringify(value));
+    }
+}
+
+@Injectable()
+export class AuthGuard implements CanActivate {
+    constructor(private router: Router) {}
+
+    canActivate() {
+        var user = LocalStorage.get("user");
+        if (user && user._id && user.name)
+            return true;
+        this.router.navigate(["/login"]);
+        return false;
     }
 }
