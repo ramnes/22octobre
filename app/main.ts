@@ -5,6 +5,7 @@ import {AppComponent} from "./component";
 import {HomeComponent} from "./home/component";
 import {InvitationComponent} from "./invitation/component";
 import {GalleryComponent} from "./gallery/component";
+import {AccessComponent} from "./access/component";
 import {ContactComponent} from "./contact/component";
 import {LoginComponent} from "./login/component";
 
@@ -15,6 +16,7 @@ var routes = [
     {path: "home", component: HomeComponent, canActivate: [AuthGuard]},
     {path: "invitation", component: InvitationComponent, canActivate: [AuthGuard]},
     {path: "gallery", component: GalleryComponent, canActivate: [AuthGuard]},
+    {path: "access", component: AccessComponent, canActivate: [AuthGuard]},
     {path: "contact", component: ContactComponent, canActivate: [AuthGuard]},
     {path: "login", component: LoginComponent}
 ];
