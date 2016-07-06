@@ -1,2 +1,17 @@
 <app-navigation></app-navigation>
-<h2>Accès</h2>
+<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"
+                 [disableDefaultUI]="false" [zoomControl]="false"
+                 [streetViewControl]="false">
+  <sebm-google-map-marker *ngFor="let m of markers; let i = index"
+                          [latitude]="m.lat" [longitude]="m.lng"
+                          [label]="m.label">
+    <sebm-google-map-info-window>
+      <div style="font-weight: bold;">
+        {{m.label}}
+      </div>
+      <div style="font-style: italic">
+        <a href="{{m.dirUrl}}">Calculer mon itinéraire</a>
+      </div>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+</sebm-google-map>
