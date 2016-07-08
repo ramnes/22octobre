@@ -1,2 +1,14 @@
 <app-navigation></app-navigation>
-<h2>Contact</h2>
+<div class="background-image">
+    <form id="contact" class="container center-block fill">
+      <input #subject id="subject" class="form-control center-block"
+             autofocus spellcheck="true" autocomplete="off" type="text"
+             placeholder="Sujet">
+      <textarea #message id="message" class="form-control center-block"
+                autofocus spellcheck="true" autocomplete="off"
+                placeholder="Que puis-je faire pour vous ?"></textarea>
+      <input class="btn btn-primary btn-block center-block"
+             type="submit" value="Envoyer"
+             (click)="submit(subject, message)">
+    </form>
+</div>
