@@ -47,6 +47,40 @@
     border-color: rgba(0, 0, 0, 0);
 }
 
+#sent,
+#error {
+    margin-top: 35%;
+    margin-top: 35vh;
+    max-width: 40em;
+    min-width: 40em;
+    padding: 1em 2em 2em 2em;
+    width: 40%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(230, 230, 230);
+}
+
+
+#title {
+    margin-top: 0.5em;
+
+    color: rgb(255, 255, 255);
+
+    font-family: Libre Baskerville, serif;
+    font-size: 2em;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+}
+
+#message {
+    font-family: Libre Baskerville, serif;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-align: center;
+
+}
+
 .background-image {
     background-image: url("/assets/home-background.jpg");
 }

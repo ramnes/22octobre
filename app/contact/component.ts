@@ -13,10 +13,20 @@ import {User} from "../user/model";
     providers: [ContactService]
 })
 export class ContactComponent {
-    constructor(private service: ContactService) {}
+    sent: boolean;
+    error: boolean;
+    user: User;
+
+    constructor(private service: ContactService) {
+        this.sent = false;
+        this.error = false;
+        this.user = LocalStorage.get("user");
+    }
 
     submit(subject: HTMLInputElement, message: HTMLInputElement) {
-        var user: User = LocalStorage.get("user");
-        this.service.post(user, subject.value, message.value).subscribe();
+        this.service.post(this.user, subject.value, message.value).subscribe(
+            sent => {this.sent = true},
+            error => {this.error = true}
+        );
     }
 }
