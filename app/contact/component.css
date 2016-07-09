@@ -1,10 +1,13 @@
 #contact {
-    margin-top: 10%;
-    margin-top: 10vh;
-    max-width: 80em;
-    padding: 1em 3em 1em 3em;
-    height: 75%;
+    position: absolute;
+    top: 10%;
+    bottom: 20%;
+    left: 10%;
     width: 80%;
+
+    padding: 1em 3em 0 3em;
+    overflow: hidden;
+
     background-color: rgba(0, 0, 0, 0.5);
     color: rgb(230, 230, 230);
 }
@@ -23,7 +26,12 @@
 }
 
 #contact > textarea {
-    height: 73%;
+    height: 70%;
+    height: -moz-calc(100% - 8em);
+    height: -webkit-calc(100% - 8em);
+    height: -o-calc(100% - 8em);
+    height: calc(100% - 8em);
+    min-height: 2em;
 }
 
 #contact > .btn {
