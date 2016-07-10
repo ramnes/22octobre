@@ -6,7 +6,7 @@
            placeholder="Sujet">
     <textarea #message id="message" class="form-control center-block"
               autofocus spellcheck="true" autocomplete="off"
-              placeholder="Que puis-je faire pour vous ?"></textarea>
+              placeholder="Que pouvons-nous faire pour vous ?"></textarea>
     <input class="btn btn-primary btn-block center-block"
            type="submit" value="Envoyer"
            (click)="submit(subject, message)">
@@ -14,14 +14,14 @@
   <div *ngIf="sent" id="sent" class="container center-block">
     <h1>Message envoyé</h1>
     <div id="message">
-      Nous allons essayer de te recontacter au plus vite !
+      Nous allons essayer de vous recontacter au plus vite !
     </div>
   </div>
   <div *ngIf="error" id="error" class="container center-block">
     <h1>Oops, erreur !</h1>
     <div id="message">
-      Il semblerait que le message ne soit pas parti.<br/>
-      Réessaye plus tard.
+      Il semblerait que votre message ne soit pas parti.<br/>
+      Réessayez plus tard.
     </div>
   </div>
 </div>
