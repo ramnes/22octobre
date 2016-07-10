@@ -1,37 +1,15 @@
-#contact {
-    position: absolute;
-    top: 10%;
-    bottom: 20%;
-    left: 10%;
-    width: 80%;
-
-    padding: 1em 3em 0 3em;
-    overflow: hidden;
-
-    background-color: rgba(0, 0, 0, 0.5);
-    color: rgb(230, 230, 230);
-}
-
 #contact > input,
 #contact > textarea {
-    margin-top: 1em;
-    margin-bottom: 1em;
-
-    font-family: Libre Baskerville, serif;
-    font-size: 1.3em;
     font-weight: 700;
     text-align: left;
-
-    resize: none;
 }
 
 #contact > textarea {
-    height: 70%;
-    height: -moz-calc(100% - 8em);
-    height: -webkit-calc(100% - 8em);
-    height: -o-calc(100% - 8em);
-    height: calc(100% - 8em);
-    min-height: 2em;
+    height: 14em;
+    height: 40vh;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    resize: none;
 }
 
 #contact > .btn {
@@ -43,50 +21,9 @@
     border-color: rgb(255, 0, 0);
 }
 
-.btn-primary {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-color: rgba(0, 0, 0, 0);
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(0, 0, 0, 0);
-}
-
 #sent,
 #error {
-    margin-top: 35%;
-    margin-top: 35vh;
-    max-width: 40em;
-    min-width: 40em;
-    padding: 1em 2em 2em 2em;
-    width: 40%;
-
-    background-color: rgba(0, 0, 0, 0.5);
-    color: rgb(230, 230, 230);
-}
-
-
-#title {
-    margin-top: 0.5em;
-
-    color: rgb(255, 255, 255);
-
-    font-family: Libre Baskerville, serif;
-    font-size: 2em;
-    font-style: italic;
-    font-weight: 700;
-    text-align: center;
-}
-
-#message {
-    font-family: Libre Baskerville, serif;
-    font-size: 1.3em;
-    font-weight: 700;
-    text-align: center;
-
+    padding-top: 0;
 }
 
 .background-image {

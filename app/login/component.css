@@ -1,55 +1,15 @@
 #login {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-
-    width: 25em;
-    padding: 1em 4em 1em 4em;
-
-    background-color: rgba(0, 0, 0, 0.5);
-    color: rgb(230, 230, 230);
-}
-
-#title {
-    margin-top: 0.5em;
-
-    color: rgb(255, 255, 255);
-
-    font-family: Libre Baskerville, serif;
-    font-size: 2em;
-    font-style: italic;
-    font-weight: 700;
-    text-align: center;
+    width: 20em;
+    padding-top: 0;
 }
 
 #login > input {
     margin-top: 1em;
-    margin-bottom: 1em;
-
-    font-family: Libre Baskerville, serif;
-    font-size: 1.3em;
-    font-weight: 700;
     text-align: center;
 }
 
 #login > .error {
     border-color: rgb(255, 0, 0);
-}
-
-.btn-primary {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-color: rgba(0, 0, 0, 0);
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(0, 0, 0, 0);
 }
 
 .background-image {

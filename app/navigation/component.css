@@ -1,11 +1,6 @@
 .navbar {
     border: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-
     text-align: left;
-    font-family: Libre Baskerville, serif;
-    font-weight: 700;
-    font-size: 1.3em;
 }
 
 .navbar .navbar-brand {
