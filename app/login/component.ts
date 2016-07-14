@@ -2,19 +2,19 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 
 import {User} from "../user/model";
-import {LoginService} from "./service";
+import {UserService} from "../user/service";
 import {LocalStorage} from "../utils";
 
 @Component({
     selector: "app-login",
     templateUrl: "app/login/component.html",
     styleUrls: ["app/login/component.css"],
-    providers: [LoginService]
+    providers: [UserService]
 })
 export class LoginComponent implements OnInit {
     invalid: boolean;
 
-    constructor(private service: LoginService, private router: Router) {
+    constructor(private users: UserService, private router: Router) {
         this.invalid = false;
     }
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
    }
 
     submit(code: HTMLInputElement) {
-        this.service.getUser(code.value).subscribe(
+        this.users.get(code.value).subscribe(
             user => this.redirect(user),
             error => this.handleError(code)
         );

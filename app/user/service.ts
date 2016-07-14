@@ -1,23 +1,23 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Headers, RequestOptions, Http, Response} from "@angular/http";
 
 import {Observable} from "rxjs/Observable";
 
-import {User} from "../user/model";
+import {User} from "./model";
 import {APIUrl} from "../constants";
 
 @Injectable()
-export class LoginService {
+export class UserService {
     constructor(private http: Http) {}
 
-    extractUser(response: Response) {
+    extract(response: Response): User {
         var data = response.json().data;
         if (data)
-            return new User(data._id, data.name);
+            return data;
     }
 
-    getUser(code: string): Observable<User> {
+    get(code: string): Observable<User> {
         return this.http.get(APIUrl + "/user/" + code)
-            .map(this.extractUser);
+            .map(this.extract);
     }
 }
