@@ -42,25 +42,30 @@
     background-color: rgba(255, 0, 0, 0.5);
 }
 
-#answer {
+#bottom {
     border-radius: 10px;
     padding: 0.1em 1em 1em 1em;
 }
 
-.accepted {
+#bottom.accepted {
     background-color: rgba(0, 255, 0, 0.25);
 }
 
-.declined {
+#bottom.declined {
     background-color: rgba(255, 0, 0, 0.25);
 }
 
-#cancel {
+#bottom.error {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+#cancel,
+#retry {
     margin-top: 1em;
     font-size: small;
 }
 
-#cancel > a {
+#bottom a {
     padding: 3px 5px 3px 5px;
 
     border-style: solid;
@@ -73,9 +78,9 @@
     cursor: pointer;
 }
 
-#cancel > a:hover,
-#cancel > a:focus,
-#cancel > a:active {
+#bottom a:hover,
+#bottom a:focus,
+#bottom a:active {
     text-decoration: none;
     border-color: rgba(255, 255, 255, 0.5);
     color: rgba(255, 255, 255, 1);

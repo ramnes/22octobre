@@ -15,7 +15,7 @@
       2 Route de Poilly<br/>
       89110, Poilly-sur-Tholon
     </div>
-    <div *ngIf="user.answer == null" id="choice">
+    <div *ngIf="user.answer == null && !error" id="choice">
       <input id="decline" class="btn btn-primary btn-block center-block"
              type="button" value="Décliner"
              (click)="decline()">
@@ -23,26 +23,36 @@
              type="button" value="Accepter"
              (click)="accept()">
     </div>
-    <div *ngIf="user.answer != null" id="answer"
+    <div *ngIf="user.answer != null || error" id="bottom"
          [class.accepted]="user.answer === true"
-         [class.declined]="user.answer === false">
-      <span *ngIf="user.answer === false">
-        <h2>Vous avez décliné l'invitation</h2>
-        Nous sommes tristes de ne pas pouvoir vous compter parmi nous.<br/>
-        <span *ngIf="cancelable()">
-          Vous pouvez changer votre réponse jusqu'au 1er septembre.
+         [class.declined]="user.answer === false"
+         [class.error]="error">
+      <div *ngIf="!error">
+        <span *ngIf="user.answer === false">
+          <h2>Vous avez décliné l'invitation</h2>
+          Nous sommes tristes de ne pas pouvoir vous compter parmi nous.<br/>
+          <span *ngIf="cancelable()">
+            Vous pouvez changer votre réponse jusqu'au 1er septembre.
+          </span>
+          <span *ngIf="!cancelable()">
+            Vous aviez jusqu'au 1er septembre pour changer de réponse.
+          </span>
         </span>
-        <span *ngIf="!cancelable()">
-          Vous aviez jusqu'au 1er septembre pour changer de réponse.
+        <span *ngIf="user.answer === true">
+          <h2>Vous avez accepté l'invitation</h2>
+          Nous sommes heureux de vous savoir parmi nous ce jour&nbsp;!<br/>
+          Rendez-vous le 22 octobre à 14h30&nbsp;!
         </span>
-      </span>
-      <span *ngIf="user.answer === true">
-        <h2>Vous avez accepté l'invitation</h2>
-        Nous sommes heureux de vous savoir parmi nous ce jour&nbsp;!<br/>
-        Rendez-vous le 22 octobre à 14h30&nbsp;!
-      </span>
-      <div *ngIf="cancelable()" id="cancel">
-        <a (click)="cancel()">Changer ma réponse</a>
+        <div *ngIf="cancelable()" id="cancel">
+          <a (click)="cancel()">Changer ma réponse</a>
+        </div>
+      </div>
+      <div *ngIf="error">
+        <h2>Oops, erreur&nbsp;!</h2>
+        Votre réponse n'a pas pu être envoyée, veuillez réessayer plus tard.
+        <div id="retry">
+          <a (click)="retry()">Réessayer</a>
+        </div>
       </div>
     </div>
   </div>

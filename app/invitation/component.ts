@@ -16,13 +16,15 @@ import {NavigationComponent} from "../navigation/component";
 })
 export class InvitationComponent {
     user: User;
+    error: boolean;
 
     constructor(private users: UserService) {
         this.user = LocalStorage.get("user");
+        this.error = false;
     }
 
     handleError(error: any) {
-        console.error(error);
+        this.error = true;
     }
 
     updateUser(user: User) {
@@ -47,12 +49,15 @@ export class InvitationComponent {
     cancel() {
         delete this.user.answer;
         this.users.put(this.user).subscribe(
-            user => this.updateUser(user),
-            error => this.handleError(error)
+            user => this.updateUser(user)
         );
     }
 
     cancelable() {
         return new Date() < limitDate;
+    }
+
+    retry() {
+        this.error = false;
     }
 }
