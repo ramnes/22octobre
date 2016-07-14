@@ -16,12 +16,24 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a *ngIf="!married()" [routerLink]="['/invitation']">Invitation</a></li>
-        <li><a *ngIf="married()" [routerLink]="['/gallery']">Photos</a></li>
-        <li><a [routerLink]="['/menu']">Menu</a></li>
-        <li><a [routerLink]="['/access']">Accès</a></li>
-        <li><a [routerLink]="['/contact']">Contact</a></li>
-        <li><a (click)="disconnect()" [routerLink]="['/login']">Déconnexion</a></li>
+        <li [routerLinkActive]="['active']" *ngIf="!married()" >
+          <a [routerLink]="['/invitation']">Invitation</a>
+        </li>
+        <li [routerLinkActive]="['active']" *ngIf="married()" >
+          <a [routerLink]="['/gallery']">Photos</a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/menu']">Menu</a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/access']">Accès</a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="['/contact']">Contact</a>
+        </li>
+        <li [routerLinkActive]="['active']">
+          <a (click)="disconnect()" [routerLink]="['/login']">Déconnexion</a>
+        </li>
       </ul>
     </div>
   </div>
