@@ -4,15 +4,10 @@
 }
 
 .navbar .navbar-brand {
-    color: rgb(230, 230, 230);
+    color: rgb(255, 255, 255);
 
     font-style: italic;
     font-size: 1.4em;
-}
-
-.navbar .navbar-brand:hover,
-.navbar .navbar-brand:focus {
-    color: rgb(255, 255, 255);
 }
 
 .navbar-nav > li > a {

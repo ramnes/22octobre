@@ -21,12 +21,12 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         var user = LocalStorage.get("user");
         if (user && user._id && user.name)
-            this.router.navigate(["/home"])
+            this.router.navigate(["/invitation"])
     }
 
     redirect(user: User) {
         LocalStorage.set("user", user);
-        this.router.navigate(["/home"]);
+        this.router.navigate(["/invitation"]);
     }
 
     handleError(code: HTMLInputElement) {

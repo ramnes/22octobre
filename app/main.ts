@@ -13,8 +13,7 @@ import {LoginComponent} from "./login/component";
 import {AuthGuard} from "./utils";
 
 var routes = [
-    {path: "", component: HomeComponent, canActivate: [AuthGuard]},
-    {path: "home", component: HomeComponent, canActivate: [AuthGuard]},
+    {path: "", component: InvitationComponent, canActivate: [AuthGuard]},
     {path: "invitation", component: InvitationComponent, canActivate: [AuthGuard]},
     {path: "gallery", component: GalleryComponent, canActivate: [AuthGuard]},
     {path: "menu", component: MenuComponent, canActivate: [AuthGuard]},
