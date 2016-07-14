@@ -1,10 +1,10 @@
 import {Injectable} from "@angular/core";
 import {Router, CanActivate} from "@angular/router";
 
-import {wedding_date} from "./constants";
+import {weddingDate} from "./constants";
 
 export function married() {
-    return (new Date() > wedding_date);
+    return (new Date() > weddingDate);
 }
 
 export class LocalStorage {
