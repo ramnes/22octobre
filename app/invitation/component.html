@@ -15,11 +15,35 @@
       2 Route de Poilly<br/>
       89110, Poilly-sur-Tholon
     </div>
-    <div id="answer">
+    <div *ngIf="user.answer == null" id="choice">
       <input id="decline" class="btn btn-primary btn-block center-block"
-             type="button" value="Décliner">
+             type="button" value="Décliner"
+             (click)="decline()">
       <input id="accept" class="btn btn-primary btn-block center-block"
-             type="button" value="Accepter">
+             type="button" value="Accepter"
+             (click)="accept()">
+    </div>
+    <div *ngIf="user.answer != null" id="answer"
+         [class.accepted]="user.answer === true"
+         [class.declined]="user.answer === false">
+      <span *ngIf="user.answer === false">
+        <h2>Vous avez décliné l'invitation</h2>
+        Nous sommes tristes de ne pas pouvoir vous compter parmi nous.<br/>
+        <span *ngIf="cancelable()">
+          Vous pouvez changer votre réponse jusqu'au 1er septembre.
+        </span>
+        <span *ngIf="!cancelable()">
+          Vous aviez jusqu'au 1er septembre pour changer de réponse.
+        </span>
+      </span>
+      <span *ngIf="user.answer === true">
+        <h2>Vous avez accepté l'invitation</h2>
+        Nous sommes heureux de vous savoir parmi nous ce jour&nbsp;!<br/>
+        Rendez-vous le 22 octobre à 14h30&nbsp;!
+      </span>
+      <div *ngIf="cancelable()" id="cancel">
+        <a (click)="cancel()">Changer ma réponse</a>
+      </div>
     </div>
   </div>
 </div>
