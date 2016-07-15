@@ -48,6 +48,38 @@ b {
     padding: 1em;
 }
 
+.popup {
+    padding: 0.1em 1em 1em 1em;
+    max-width: 35em;
+    width: 95%;
+
+    border-radius: 10px;
+}
+
+
+.popup > .close {
+    margin-top: 7px;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    opacity: 0.75;
+}
+
+.popup > .close:hover,
+.popup > .close:focus,
+.popup > .close:active {
+    outline: none;
+    color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+.popup.error {
+    background-color: rgba(150, 0, 0, 0.9);
+}
+
+.popup.success {
+    background-color: rgba(0, 200, 0, 0.9);
+}
+
 input,
 textarea {
     font-size: 1em !important;

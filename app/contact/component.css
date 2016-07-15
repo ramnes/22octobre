@@ -17,37 +17,6 @@
     max-width: 10em;
 }
 
-#result {
-    padding: 0.1em 1em 1em 1em;
-    max-width: 35em;
-    width: 95%;
-
-    border-radius: 10px;
-}
-
-#result.sent {
-    background-color: rgba(0, 200, 0, 0.9);
-}
-
-#result.error {
-    background-color: rgba(150, 0, 0, 0.9);
-}
-
-.close {
-    margin-top: 7px;
-    color: rgb(255, 255, 255);
-    font-size: 30px;
-    opacity: 0.75;
-}
-
-.close:hover,
-.close:focus,
-.close:active {
-    outline: none;
-    color: rgb(255, 255, 255);
-    opacity: 1;
-}
-
 .background-image {
     background-image: url("/assets/home-background.jpg");
 }

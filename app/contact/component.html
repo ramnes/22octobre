@@ -11,11 +11,10 @@
     <input class="btn btn-primary btn-block center-block"
            (click)="submit(subject, message)" value="Envoyer">
   </div>
-  <div *ngIf="sent || error" id="result"
-       class="container center-block"
-       [class.sent]="sent" [class.error]="error">
+  <div *ngIf="sent || error" class="container center-block popup"
+       [class.success]="sent" [class.error]="error">
     <button class="close" (click)="close()">&times;</button>
-    <span *ngIf="sent ">
+    <span *ngIf="sent">
       <h2>Message envoyé</h2>
       Nous allons essayer de vous recontacter au plus vite !
     </span>
