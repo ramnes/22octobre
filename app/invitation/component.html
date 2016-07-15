@@ -15,7 +15,7 @@
       2 Route de Poilly<br/>
       89110, Poilly-sur-Tholon
     </div>
-    <div *ngIf="user.answer == null && !error" id="choice">
+    <div *ngIf="user.answer == null" id="choice">
       <input id="decline" class="btn btn-primary btn-block center-block"
              type="button" value="Décliner"
              (click)="decline()">
@@ -23,11 +23,10 @@
              type="button" value="Accepter"
              (click)="accept()">
     </div>
-    <div *ngIf="user.answer != null || error" id="bottom"
+    <div *ngIf="user.answer != null" id="bottom"
          [class.accepted]="user.answer === true"
-         [class.declined]="user.answer === false"
-         [class.error]="error">
-      <div *ngIf="!error">
+         [class.declined]="user.answer === false">
+      <div>
         <span *ngIf="user.answer === false">
           <h2>Vous avez décliné l'invitation</h2>
           Nous sommes tristes de ne pas pouvoir vous compter parmi nous.<br/>
@@ -47,13 +46,11 @@
           <a (click)="cancel()">Changer ma réponse</a>
         </div>
       </div>
-      <div *ngIf="error">
-        <h2>Oops, erreur&nbsp;!</h2>
-        Votre réponse n'a pas pu être envoyée, veuillez réessayer plus tard.
-        <div id="retry">
-          <a (click)="retry()">Réessayer</a>
-        </div>
-      </div>
     </div>
+  </div>
+  <div *ngIf="error" class="container center-block popup error">
+    <button class="close" (click)="close()">&times;</button>
+    <h2>Oops, erreur&nbsp;!</h2>
+    Votre réponse n'a pas pu être envoyée. Réessayez plus tard.
   </div>
 </div>

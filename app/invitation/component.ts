@@ -57,7 +57,7 @@ export class InvitationComponent {
         return new Date() < limitDate;
     }
 
-    retry() {
+    close() {
         this.error = false;
     }
 }
