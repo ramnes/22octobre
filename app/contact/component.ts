@@ -23,10 +23,23 @@ export class ContactComponent {
         this.user = LocalStorage.get("user");
     }
 
+    handleSuccess(subject: HTMLInputElement, message: HTMLInputElement) {
+        this.sent = true;
+        subject.value = "";
+        message.value = "";
+    }
+
     submit(subject: HTMLInputElement, message: HTMLInputElement) {
+        this.error = false;
+        this.sent = false;
         this.service.post(this.user, subject.value, message.value).subscribe(
-            sent => {this.sent = true},
+            sent => this.handleSuccess(subject, message),
             error => {this.error = true}
         );
+    }
+
+    close() {
+        this.error = false;
+        this.sent = false;
     }
 }

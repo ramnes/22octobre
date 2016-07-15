@@ -1,6 +1,6 @@
 <app-navigation></app-navigation>
 <div class="background-image">
-  <form *ngIf="!sent && !error" id="contact" class="container center-block">
+  <div id="contact" class="container center-block">
     <h1>Contact</h1>
     <input #subject id="subject" class="form-control center-block"
            autofocus spellcheck="true" autocomplete="off" type="text"
@@ -9,20 +9,19 @@
               autofocus spellcheck="true" autocomplete="off"
               placeholder="Que pouvons-nous faire pour vous ?"></textarea>
     <input class="btn btn-primary btn-block center-block"
-           type="submit" value="Envoyer"
-           (click)="submit(subject, message)">
-  </form>
-  <div *ngIf="sent" id="sent" class="container center-block">
-    <h1>Message envoyé</h1>
-    <div id="message">
-      Nous allons essayer de vous recontacter au plus vite !
-    </div>
+           (click)="submit(subject, message)" value="Envoyer">
   </div>
-  <div *ngIf="error" id="error" class="container center-block">
-    <h1>Oops, erreur !</h1>
-    <div id="message">
-      Il semblerait que votre message ne soit pas parti.<br/>
-      Réessayez plus tard.
-    </div>
+  <div *ngIf="sent || error" id="result"
+       class="container center-block"
+       [class.sent]="sent" [class.error]="error">
+    <button class="close" (click)="close()">&times;</button>
+    <span *ngIf="sent ">
+      <h2>Message envoyé</h2>
+      Nous allons essayer de vous recontacter au plus vite !
+    </span>
+    <span *ngIf="error">
+      <h2>Oops, erreur&nbsp;!</h2>
+      Votre message n'a pas pu être envoyé. Veuillez réssayer.
+    </span>
   </div>
 </div>
