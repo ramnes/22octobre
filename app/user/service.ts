@@ -17,25 +17,29 @@ export class UserService {
     }
 
     get(code: string): Observable<User> {
-        return this.http.get(APIUrl + "/user/" + code)
+        var url = APIUrl + "/user?code=" + code;
+
+        return this.http.get(url)
             .map(this.extract);
     }
 
     patch(user: User, fields: any): Observable<User> {
+        var url = APIUrl + "/user?code=" + user._id;
         var body = JSON.stringify(fields);
         var headers = new Headers({"Content-Type": "application/json"});
         var options = new RequestOptions({headers: headers});
 
-        return this.http.patch(APIUrl + "/user/" + user._id, body, options)
+        return this.http.patch(url, body, options)
             .map(this.extract);
     }
 
     put(user: User): Observable<User> {
+        var url = APIUrl + "/user?code=" + user._id;
         var body = JSON.stringify(user);
         var headers = new Headers({"Content-Type": "application/json"});
         var options = new RequestOptions({headers: headers});
 
-        return this.http.put(APIUrl + "/user/" + user._id, body, options)
+        return this.http.put(url, body, options)
             .map(this.extract);
     }
 }
