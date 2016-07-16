@@ -3,7 +3,6 @@ import {Component} from "@angular/core";
 import {NavigationComponent} from "../navigation/component";
 import {ContactService} from "./service";
 import {LocalStorage} from "../utils";
-import {User} from "../user/model";
 
 @Component({
     selector: "app-contact",
@@ -15,12 +14,12 @@ import {User} from "../user/model";
 export class ContactComponent {
     sent: boolean;
     error: boolean;
-    user: User;
+    code: string;
 
     constructor(private service: ContactService) {
         this.sent = false;
         this.error = false;
-        this.user = LocalStorage.get("user");
+        this.code = LocalStorage.get("code");
     }
 
     handleSuccess(subject: HTMLInputElement, message: HTMLInputElement) {
@@ -32,7 +31,7 @@ export class ContactComponent {
     submit(subject: HTMLInputElement, message: HTMLInputElement) {
         this.error = false;
         this.sent = false;
-        this.service.post(this.user, subject.value, message.value).subscribe(
+        this.service.post(this.code, subject.value, message.value).subscribe(
             sent => this.handleSuccess(subject, message),
             error => {this.error = true}
         );

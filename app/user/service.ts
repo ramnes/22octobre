@@ -23,8 +23,8 @@ export class UserService {
             .map(this.extract);
     }
 
-    patch(user: User, fields: any): Observable<User> {
-        var url = APIUrl + "/user?code=" + user._id;
+    patch(code: string, fields: any): Observable<User> {
+        var url = APIUrl + "/user?code=" + code;
         var body = JSON.stringify(fields);
         var headers = new Headers({"Content-Type": "application/json"});
         var options = new RequestOptions({headers: headers});
@@ -33,8 +33,8 @@ export class UserService {
             .map(this.extract);
     }
 
-    put(user: User): Observable<User> {
-        var url = APIUrl + "/user?code=" + user._id;
+    put(code: string, user: User): Observable<User> {
+        var url = APIUrl + "/user?code=" + code;
         var body = JSON.stringify(user);
         var headers = new Headers({"Content-Type": "application/json"});
         var options = new RequestOptions({headers: headers});

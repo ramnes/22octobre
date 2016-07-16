@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
             this.router.navigate(["/invitation"])
     }
 
-    redirect(user: User) {
+    redirect(code: string, user: User) {
+        LocalStorage.set("code", code);
         LocalStorage.set("user", user);
         this.router.navigate(["/invitation"]);
     }
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
 
     submit(code: HTMLInputElement) {
         this.users.get(code.value).subscribe(
-            user => this.redirect(user),
+            user => this.redirect(code.value, user),
             error => this.handleError(code)
         );
     }

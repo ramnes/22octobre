@@ -15,12 +15,14 @@ import {NavigationComponent} from "../navigation/component";
     providers: [UserService]
 })
 export class InvitationComponent {
-    user: User;
     error: boolean;
+    user: User;
+    code: string;
 
     constructor(private users: UserService) {
-        this.user = LocalStorage.get("user");
         this.error = false;
+        this.user = LocalStorage.get("user");
+        this.code = LocalStorage.get("code");
     }
 
     handleError(error: any) {
@@ -33,14 +35,14 @@ export class InvitationComponent {
     }
 
     accept() {
-        this.users.patch(this.user, {answer: true}).subscribe(
+        this.users.patch(this.code, {answer: true}).subscribe(
             user => this.updateUser(user),
             error => this.handleError(error)
         );
     }
 
     decline() {
-        this.users.patch(this.user, {answer: false}).subscribe(
+        this.users.patch(this.code, {answer: false}).subscribe(
             user => this.updateUser(user),
             error => this.handleError(error)
         );
@@ -48,7 +50,7 @@ export class InvitationComponent {
 
     cancel() {
         delete this.user.answer;
-        this.users.put(this.user).subscribe(
+        this.users.put(this.code, this.user).subscribe(
             user => this.updateUser(user)
         );
     }

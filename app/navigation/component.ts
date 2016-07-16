@@ -17,6 +17,7 @@ export class NavigationComponent {
     }
 
     disconnect() {
+        LocalStorage.remove("code");
         LocalStorage.remove("user");
         this.router.navigate(["/login"]);
     }
