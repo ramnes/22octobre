@@ -1,7 +1,6 @@
 import {Component} from "@angular/core";
 
-import {GOOGLE_MAPS_DIRECTIVES, GOOGLE_MAPS_PROVIDERS, MapsAPILoader,
-        MouseEvent, NoOpMapsAPILoader} from "angular2-google-maps/core";
+import {GOOGLE_MAPS_DIRECTIVES} from "angular2-google-maps/core";
 
 import {NavigationComponent} from "../navigation/component";
 
@@ -16,8 +15,7 @@ class Marker {
     selector: "app-access",
     templateUrl: "app/access/component.html",
     styleUrls: ["app/access/component.css"],
-    directives: [GOOGLE_MAPS_DIRECTIVES, NavigationComponent],
-    providers: [GOOGLE_MAPS_PROVIDERS]
+    directives: [GOOGLE_MAPS_DIRECTIVES, NavigationComponent]
 })
 export class AccessComponent {
     zoom: number = 12;

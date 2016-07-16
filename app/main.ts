@@ -1,6 +1,9 @@
 import {bootstrap} from "@angular/platform-browser-dynamic";
 import {provideRouter} from "@angular/router";
 
+import {GOOGLE_MAPS_PROVIDERS,
+        provideLazyMapsAPILoaderConfig} from "angular2-google-maps/core";
+
 import {AppComponent} from "./component";
 import {HomeComponent} from "./home/component";
 import {InvitationComponent} from "./invitation/component";
@@ -11,6 +14,7 @@ import {ContactComponent} from "./contact/component";
 import {LoginComponent} from "./login/component";
 
 import {AuthGuard} from "./utils";
+import {mapsAPIKey} from "./constants";
 
 var routes = [
     {path: "", component: InvitationComponent, canActivate: [AuthGuard]},
@@ -22,5 +26,6 @@ var routes = [
     {path: "login", component: LoginComponent}
 ];
 
-bootstrap(AppComponent, [provideRouter(routes), AuthGuard])
+bootstrap(AppComponent, [provideRouter(routes), AuthGuard, GOOGLE_MAPS_PROVIDERS,
+                         provideLazyMapsAPILoaderConfig({apiKey: mapsAPIKey})])
     .catch(err => console.error(err));
