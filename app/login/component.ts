@@ -38,8 +38,9 @@ export class LoginComponent implements OnInit {
    }
 
     submit(code: HTMLInputElement) {
-        this.users.get(code.value).subscribe(
-            user => this.redirect(code.value, user),
+        var codeURI = encodeURIComponent(code.value);
+        this.users.get(codeURI).subscribe(
+            user => this.redirect(codeURI, user),
             error => this.handleError(code)
         );
     }
