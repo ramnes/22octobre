@@ -4,5 +4,5 @@
 ```bash
     $ npm install
     $ bower install
-    $ tsc
+    $ npm run
 ```
